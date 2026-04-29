@@ -1,0 +1,230 @@
+
+/* Removes default spacing and sets base colors + font */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+}
+
+
+/* NAVBAR */
+
+/* make it sticky*/
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #c32105; 
+  padding: 10px 20px;
+  z-index: 999;
+}
+
+/* links in row */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo word styling */
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navigation links container */
+nav ul {
+   list-style: none; 
+  display: flex;
+  gap: 30px; /* space between links */
+}
+
+/* Navigation links */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+}
+/* Underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #444801;
+  transition: width 0.3s ease;
+}
+
+/* On hover */
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #351f03;
+}
+
+/* HERO section */
+
+/* Main hero container */
+#hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;  
+  z-index: 1;
+}
+
+/* Background image overlay */
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;            
+  height: 100vh;           
+  background: url("Images/hero.jpg") center/cover no-repeat;
+  filter: brightness(70%);
+  z-index: 0;
+}
+
+/* Main hero title */
+#hero h1 {
+  font-family: "Indie Flower", cursive;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  color: white;
+  font-size: 120px;
+}
+
+
+/* Hero subtitle */
+#hero p {
+  font-family: "Indie Flower", cursive;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 40px;
+}
+
+
+/* Pizza cards */
+
+/* Rounds corners of cards */
+.card {
+  border-radius: 10px;
+}
+
+/* Controls image size inside cards */
+.card img {
+  height: 200px;
+  object-fit: cover; /* prevents stretching */
+}
+
+
+/*sides section*/
+
+/* Adds spacing above section */
+#other-items {
+  margin-top: 50px;
+}
+/* Image becomes a square tile */
+#other-items img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* Location cards*/
+
+/* Styles each location box */
+.location-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.btn:active {
+  transform: scale(0.90);
+}
+
+
+
+/* --------------------
+   FOOTER
+-------------------- */
+
+/* Footer styling */
+footer {
+  background-color: #c62828;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+
+/* --------------------
+   HAMBURGER MENU
+-------------------- */
+
+/* Hidden by default (only shows on mobile) */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer; /* shows clickable cursor */
+}
+
+
+/* --------------------
+   RESPONSIVE DESIGN
+-------------------- */
+
+/* Applies styles when screen is mobile size */
+@media (max-width: 768px) {
+
+  /* Hides normal nav and turns into dropdown */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #c62828;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+  }
+
+  /* Shows menu when JS adds "active" class */
+  nav ul.active {
+    display: flex;
+  }
+
+  /* Shows hamburger icon on mobile */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Smaller text for mobile screens */
+  #hero h1 {
+    font-size: 40px;
+  }
+
+  #hero p {
+    font-size: 16px;
+  }
+}
